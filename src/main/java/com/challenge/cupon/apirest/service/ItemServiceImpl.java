@@ -15,7 +15,6 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
-
 @Service
 @Transactional
 public class ItemServiceImpl implements ItemService{
@@ -50,7 +49,7 @@ public class ItemServiceImpl implements ItemService{
                 .reduce(0.00f, Float::sum);
     }
 
-    public  Map<String, Float> getItemsRedis(Set<String> itemsBusqueda) {
+    private Map<String, Float> getItemsRedis(Set<String> itemsBusqueda) {
         Map<String, Float> itemsRedis = itemDAO.findAll();
         Map<String, Float> itemsFiltrados = new HashMap<>();
         itemsRedis.entrySet().forEach(items -> {
@@ -63,7 +62,7 @@ public class ItemServiceImpl implements ItemService{
         return itemsFiltrados;
     }
 
-    public  CompletableFuture<String> getItem(String url) {
+    private  CompletableFuture<String> getItem(String url) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
