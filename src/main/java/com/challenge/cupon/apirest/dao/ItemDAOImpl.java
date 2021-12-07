@@ -7,10 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class ItemDAOImpl implements ItemDAO {
-    private static final String KEY = "Student";
+    private static final String KEY = "Item";
 
     private RedisTemplate<String, Float> redisTemplate;
     private HashOperations hashOperations;
@@ -24,8 +25,8 @@ public class ItemDAOImpl implements ItemDAO {
         hashOperations = redisTemplate.opsForHash();
     }
     @Override
-    public List<Item> findAll() {
-        return (List<Item>) hashOperations.entries(KEY);
+    public Map<String, Float> findAll() {
+        return  hashOperations.entries(KEY);
     }
 
     @Override

@@ -3,10 +3,11 @@ package com.challenge.cupon.apirest.dao;
 import com.challenge.cupon.apirest.entity.Item;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ItemDAO {
 
-    public List<Item> findAll();
+    public Map<String, Float> findAll();
 
     public Item findById(String id);
 

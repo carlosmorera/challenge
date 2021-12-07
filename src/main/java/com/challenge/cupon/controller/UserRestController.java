@@ -17,7 +17,7 @@ public class UserRestController {
     private CuponService cuponService;
 
     @PostMapping("/cupon")
-    public List<String> validateCupon(@RequestBody Cupon cupon) {
+    public Cupon validateCupon(@RequestBody Cupon cupon) {
          return cuponService.validateCupon(cupon);
     }
 
