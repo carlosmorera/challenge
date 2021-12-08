@@ -23,10 +23,12 @@ dependencies {
     implementation'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.projectlombok:lombok'
     implementation 'redis.clients:jedis'
-    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'junit:junit:4.13.2'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    testImplementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.1'
 }
 
 test {

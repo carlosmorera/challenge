@@ -20,10 +20,10 @@ import java.util.stream.Collectors;
 public class ItemServiceImpl implements ItemService{
 
     private ItemDAO itemDAO;
-
     public ItemServiceImpl(ItemDAO itemDAO) {
         this.itemDAO = itemDAO;
     }
+
     @Override
     public Map<String, Float> buildItems(List<String> itemsConsulta) {
 
