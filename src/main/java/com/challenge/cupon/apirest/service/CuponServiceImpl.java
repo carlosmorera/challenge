@@ -11,8 +11,11 @@ import java.util.*;
 @Transactional
 public class CuponServiceImpl implements CuponService {
 
-    @Autowired
     private ItemService itemService;
+
+    public CuponServiceImpl(ItemService itemService) {
+        this.itemService = itemService;
+    }
 
     @Override
     public Cupon validateCupon(Cupon cupon) {

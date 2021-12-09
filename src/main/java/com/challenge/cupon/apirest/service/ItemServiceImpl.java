@@ -62,7 +62,7 @@ public class ItemServiceImpl implements ItemService{
         return itemsFiltrados;
     }
 
-    private  CompletableFuture<String> getItem(String url) {
+    public  CompletableFuture<String> getItem(String url) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))

@@ -3,6 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'org.asciidoctor.convert' version '1.5.8'
     id 'java'
+    id 'jacoco'
 }
 
 group = 'com.challenge'
@@ -32,8 +33,30 @@ dependencies {
 }
 
 test {
-    outputs.dir snippetsDir
     useJUnitPlatform()
+    jacoco {
+        excludes = ["com.challenge.cupon.CuponApplication"]
+    }
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+    reportsDirectory = layout.buildDirectory.dir('coverage-report')
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.80
+            }
+        }
+    }
 }
 
 asciidoctor {

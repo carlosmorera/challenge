@@ -8,9 +8,5 @@ public interface ItemDAO {
 
     public Map<String, Float> findAll();
 
-    public Item findById(String id);
-
     public void save(Item item);
-
-    public void deleteById(String id);
 }
