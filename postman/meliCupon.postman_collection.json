@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "6d3e425a-4a2c-48b7-91cf-d1bf1b038060",
+		"name": "meliCupon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "gcp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_ids\": [\n        \"MLA844702264\",\n        \"MLA844702265\",\n        \"MLA844702266\",\n        \"MLA844702267\",\n        \"MLA844702268\",\n        \"MLA844702268\",\n        \"MLA844702264\",\n        \"MLA844702265\",\n        \"MLA844702266\",\n        \"MLA844702267\",\n        \"MLA844702268\",\n        \"MLA844702268\",\n        \"MLA844702264\",\n        \"MLA844702265\",\n        \"MLA844702266\",\n        \"MLA844702267\",\n        \"MLA844702268\",\n        \"MLA844702268\",\n        \"MLA844702264\"\n    ],\n    \"amount\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://challenge-334623.ue.r.appspot.com/cupon",
+					"protocol": "https",
+					"host": [
+						"challenge-334623",
+						"ue",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"cupon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "local",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_ids\": [\n        \"MLA844702264\",\n        \"MLA844702265\",\n        \"MLA844702266\",\n        \"MLA844702267\",\n        \"MLA844702268\",\n        \"MLA844702268\",\n        \"MLA844702264\",\n        \"MLA844702265\",\n        \"MLA844702266\",\n        \"MLA844702267\",\n        \"MLA844702268\",\n        \"MLA844702268\",\n        \"MLA844702264\",\n        \"MLA844702265\",\n        \"MLA844702266\",\n        \"MLA844702267\",\n        \"MLA844702268\",\n        \"MLA844702268\",\n        \"MLA844702264\"\n    ],\n    \"amount\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/cupon",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"cupon"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
