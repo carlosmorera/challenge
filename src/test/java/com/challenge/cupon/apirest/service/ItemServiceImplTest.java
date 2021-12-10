@@ -1,6 +1,6 @@
 package com.challenge.cupon.apirest.service;
 
-import com.challenge.cupon.apirest.dao.ItemDAOImpl;
+import com.challenge.cupon.apirest.repository.ItemRepositoryImpl;
 import com.challenge.cupon.apirest.entity.Item;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -45,7 +45,7 @@ public class ItemServiceImplTest {
         items.add("MLA844702267");
         items.add("MLA844702264");
         this.redisTemplate.opsForHash().put("Item", "MLA844702267",10.22f);
-        ItemDAOImpl itemDAO = new ItemDAOImpl(this.redisTemplate);
+        ItemRepositoryImpl itemDAO = new ItemRepositoryImpl(this.redisTemplate);
         ItemServiceImpl service = new ItemServiceImpl(itemDAO);
 
         Map<String, Float> map = service.buildItems(items);
@@ -61,7 +61,7 @@ public class ItemServiceImplTest {
         items.add("c");
         Item itemA = new Item("a", 10.22f);
         Item ItemB = new Item("b", 8f);
-        ItemDAOImpl itemDAO = new ItemDAOImpl(this.redisTemplate);
+        ItemRepositoryImpl itemDAO = new ItemRepositoryImpl(this.redisTemplate);
         ItemServiceImpl service = new ItemServiceImpl(itemDAO);
         itemDAO.save(itemA);
         itemDAO.save(ItemB);

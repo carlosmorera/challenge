@@ -1,7 +1,7 @@
 package com.challenge.cupon.apirest.service;
 
 
-import com.challenge.cupon.apirest.dao.ItemDAO;
+import com.challenge.cupon.apirest.repository.ItemRepository;
 import com.challenge.cupon.apirest.entity.Item;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Service;
@@ -19,9 +19,9 @@ import java.util.stream.Collectors;
 @Transactional
 public class ItemServiceImpl implements ItemService{
 
-    private ItemDAO itemDAO;
-    public ItemServiceImpl(ItemDAO itemDAO) {
-        this.itemDAO = itemDAO;
+    private ItemRepository itemRepository;
+    public ItemServiceImpl(ItemRepository itemRepository) {
+        this.itemRepository = itemRepository;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ItemServiceImpl implements ItemService{
                 .map(CompletableFuture::join).map(itemJson -> {
                     Gson gson = new Gson();
                     Item item = gson.fromJson(itemJson, Item.class);
-                    itemDAO.save(item);
+                    itemRepository.save(item);
                     return item;
                 }).collect(Collectors.toMap(Item::getId, Item::getPrice));
          itemsFound.putAll(newItems);
@@ -50,7 +50,7 @@ public class ItemServiceImpl implements ItemService{
     }
 
     private Map<String, Float> getItemsRedis(Set<String> itemsBusqueda) {
-        Map<String, Float> itemsRedis = itemDAO.findAll();
+        Map<String, Float> itemsRedis = itemRepository.findAll();
         Map<String, Float> itemsFiltrados = new HashMap<>();
         itemsRedis.entrySet().forEach(items -> {
             itemsBusqueda.forEach(x -> {

@@ -1,10 +1,10 @@
-package com.challenge.cupon.apirest.dao;
+package com.challenge.cupon.apirest.repository;
 
 import com.challenge.cupon.apirest.entity.Item;
 
 import java.util.Map;
 
-public interface ItemDAO {
+public interface ItemRepository {
 
     public Map<String, Float> findAll();
 

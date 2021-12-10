@@ -1,4 +1,4 @@
-package com.challenge.cupon.apirest.dao;
+package com.challenge.cupon.apirest.repository;
 
 import com.challenge.cupon.apirest.entity.Item;
 import org.springframework.data.redis.core.HashOperations;
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 @Repository
-public class ItemDAOImpl implements ItemDAO {
+public class ItemRepositoryImpl implements ItemRepository {
     private static final String KEY = "Item";
 
     private RedisTemplate<String, Float> redisTemplate;
     private HashOperations hashOperations;
 
-    public ItemDAOImpl(RedisTemplate<String, Float> redisTemplate) {
+    public ItemRepositoryImpl(RedisTemplate<String, Float> redisTemplate) {
         this.redisTemplate = redisTemplate;
         this.hashOperations = redisTemplate.opsForHash();
 
